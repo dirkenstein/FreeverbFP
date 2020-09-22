@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-// A fixed point implementation of Freeverb by Jezar at Dreampoint
+// A Floating  point implementation of Freeverb by Jezar at Dreampoint
 //  http://blog.bjornroche.com/2012/06/freeverb-original-public-domain-code-by.html
 //  https://music.columbia.edu/pipermail/music-dsp/2001-October/045433.html
 
