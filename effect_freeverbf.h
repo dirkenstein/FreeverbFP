@@ -24,7 +24,7 @@
  * THE SOFTWARE.
  */
 
-#ifndef effect_freeverb_f__h_
+#ifndef effect_freeverb_f_h_
 #define effect_freeverb_f_h_
 #include <Arduino.h>
 #include "AudioStream.h"
@@ -188,4 +188,3 @@ private:
 
 
 #endif
-
