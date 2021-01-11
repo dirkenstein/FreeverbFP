@@ -34,14 +34,14 @@
 
 AudioEffectFreeverbFloat::AudioEffectFreeverbFloat() : AudioStream(1, inputQueueArray)
 {
-	for(int i = 0; i < sizeof(comb1buf)/sizeof(float); i++) comb1buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb2buf)/sizeof(float); i++) comb2buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb3buf)/sizeof(float); i++) comb3buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb4buf)/sizeof(float); i++) comb4buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb5buf)/sizeof(float); i++) comb5buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb6buf)/sizeof(float); i++) comb6buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb7buf)/sizeof(float); i++) comb7buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb8buf)/sizeof(float); i++) comb8buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb1buf)/sizeof(float); i++) comb1buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb2buf)/sizeof(float); i++) comb2buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb3buf)/sizeof(float); i++) comb3buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb4buf)/sizeof(float); i++) comb4buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb5buf)/sizeof(float); i++) comb5buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb6buf)/sizeof(float); i++) comb6buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb7buf)/sizeof(float); i++) comb7buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb8buf)/sizeof(float); i++) comb8buf[i] = 0.0; 
 	comb1index = 0;
 	comb2index = 0;
 	comb3index = 0;
@@ -61,10 +61,10 @@ AudioEffectFreeverbFloat::AudioEffectFreeverbFloat() : AudioStream(1, inputQueue
 	combdamp1 = 6553.0;
 	combdamp2 = 26215.0;
 	combfeeback = 27524.0;
-	for(int i = 0; i < sizeof(allpass1buf)/sizeof(float); i++) allpass1buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass2buf)/sizeof(float); i++) allpass2buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass3buf)/sizeof(float); i++) allpass3buf[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass4buf)/sizeof(float); i++) allpass4buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass1buf)/sizeof(float); i++) allpass1buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass2buf)/sizeof(float); i++) allpass2buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass3buf)/sizeof(float); i++) allpass3buf[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass4buf)/sizeof(float); i++) allpass4buf[i] = 0.0; 
 	allpass1index = 0;
 	allpass2index = 0;
 	allpass3index = 0;
@@ -96,7 +96,7 @@ static int16_t sat16i(int32_t n, int rshift) {
 }
 #endif
 
-static float sat16(float n, int rshift) {
+/* static float sat16(float n, int rshift) {
     // we should always round towards 0
     // to avoid recirculating round-off noise
     //
@@ -105,7 +105,7 @@ static float sat16(float n, int rshift) {
     // care of negative numbers
     n = n / (float) (1<<rshift);
     return n;
-}
+} */
 
 // TODO: move this to one of the data files, use in output_adat.cpp, output_tdm.cpp, etc
 static const audio_block_t zeroblock = {
@@ -247,14 +247,14 @@ void AudioEffectFreeverbFloat::update()
 
 AudioEffectFreeverbStereoFloat::AudioEffectFreeverbStereoFloat() : AudioStream(1, inputQueueArray)
 {
-	for(int i = 0; i < sizeof(comb1bufL)/sizeof(float); i++) comb1bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb2bufL)/sizeof(float); i++) comb2bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb3bufL)/sizeof(float); i++) comb3bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb4bufL)/sizeof(float); i++) comb4bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb5bufL)/sizeof(float); i++) comb5bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb6bufL)/sizeof(float); i++) comb6bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb7bufL)/sizeof(float); i++) comb7bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb8bufL)/sizeof(float); i++) comb8bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb1bufL)/sizeof(float); i++) comb1bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb2bufL)/sizeof(float); i++) comb2bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb3bufL)/sizeof(float); i++) comb3bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb4bufL)/sizeof(float); i++) comb4bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb5bufL)/sizeof(float); i++) comb5bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb6bufL)/sizeof(float); i++) comb6bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb7bufL)/sizeof(float); i++) comb7bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb8bufL)/sizeof(float); i++) comb8bufL[i] = 0.0; 
 	comb1indexL = 0;
 	comb2indexL = 0;
 	comb3indexL = 0;
@@ -271,14 +271,14 @@ AudioEffectFreeverbStereoFloat::AudioEffectFreeverbStereoFloat() : AudioStream(1
 	comb6filterL = 0.0;
 	comb7filterL = 0.0;
 	comb8filterL = 0.0;
-	for(int i = 0; i < sizeof(comb1bufR)/sizeof(float); i++) comb1bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb2bufR)/sizeof(float); i++) comb2bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb3bufR)/sizeof(float); i++) comb3bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb4bufR)/sizeof(float); i++) comb4bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb5bufR)/sizeof(float); i++) comb5bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb6bufR)/sizeof(float); i++) comb6bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb7bufR)/sizeof(float); i++) comb7bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(comb8bufR)/sizeof(float); i++) comb8bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb1bufR)/sizeof(float); i++) comb1bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb2bufR)/sizeof(float); i++) comb2bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb3bufR)/sizeof(float); i++) comb3bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb4bufR)/sizeof(float); i++) comb4bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb5bufR)/sizeof(float); i++) comb5bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb6bufR)/sizeof(float); i++) comb6bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb7bufR)/sizeof(float); i++) comb7bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(comb8bufR)/sizeof(float); i++) comb8bufR[i] = 0.0; 
 	comb1indexR = 0;
 	comb2indexR = 0;
 	comb3indexR = 0;
@@ -298,18 +298,18 @@ AudioEffectFreeverbStereoFloat::AudioEffectFreeverbStereoFloat() : AudioStream(1
 	combdamp1 = 6553.0;
 	combdamp2 = 26215.0;
 	combfeeback = 27524.0;
-	for(int i = 0; i < sizeof(allpass1bufL)/sizeof(float); i++) allpass1bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass2bufL)/sizeof(float); i++) allpass2bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass3bufL)/sizeof(float); i++) allpass3bufL[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass4bufL)/sizeof(float); i++) allpass4bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass1bufL)/sizeof(float); i++) allpass1bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass2bufL)/sizeof(float); i++) allpass2bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass3bufL)/sizeof(float); i++) allpass3bufL[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass4bufL)/sizeof(float); i++) allpass4bufL[i] = 0.0; 
 	allpass1indexL = 0;
 	allpass2indexL = 0;
 	allpass3indexL = 0;
 	allpass4indexL = 0;
-	for(int i = 0; i < sizeof(allpass1bufR)/sizeof(float); i++) allpass1bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass2bufR)/sizeof(float); i++) allpass2bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass3bufR)/sizeof(float); i++) allpass3bufR[i] = 0.0; 
-	for(int i = 0; i < sizeof(allpass4bufR)/sizeof(float); i++) allpass4bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass1bufR)/sizeof(float); i++) allpass1bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass2bufR)/sizeof(float); i++) allpass2bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass3bufR)/sizeof(float); i++) allpass3bufR[i] = 0.0; 
+	for(unsigned int i = 0; i < sizeof(allpass4bufR)/sizeof(float); i++) allpass4bufR[i] = 0.0; 
 	allpass1indexR = 0;
 	allpass2indexR = 0;
 	allpass3indexR = 0;
@@ -507,6 +507,3 @@ void AudioEffectFreeverbStereoFloat::update()
 	if (block) release(block);
 #endif
 }
-
-
-
